@@ -27,8 +27,11 @@ export default function Home() {
             <h1>
               Kuber Matka App
             </h1>
-          </div>
 
+          </div>
+          <p>
+            Play Now, Win Big
+          </p>
           {/* FULL WIDTH BANNER */}
           <div className="sara-banner-full">
             <img

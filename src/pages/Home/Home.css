@@ -126,9 +126,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: textShine 4s linear infinite;
-  position: absolute;
-  top: 40%;
-  left: 30%;
+
 }
 
 /* FULL WIDTH BANNER */
@@ -137,7 +135,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 .sara-banner-full img {
