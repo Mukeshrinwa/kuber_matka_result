@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= HERO ================= */
+
+.sara-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+  background: #f2f2f2;
+}
+
+/* FLOATING DOTS */
+
+.dot {
+  position: absolute;
+  border-radius: 50%;  
+  z-index: 1;
+
+  
+}
+
+.yellow {
+  width: 55px;
+  height: 55px;
+  background: #f4d65e;
+  top: 120px;
+  left: 55px;
+}
+
+.orange {
+  width: 16px;
+  height: 16px;
+  background: #f26d3d;
+  top: 130px;
+  left: 35%;
+}
+
+.blue {
+  width: 16px;
+  height: 16px;
+  background: #4f9ea2;
+  top: 80px;
+  right: 40%;
+}
+
+.peach {
+  width: 65px;
+  height: 65px;
+  background: #f39a73;
+  right: 80px;
+  bottom: 240px;
+}
+
+.green {
+  width: 75px;
+  height: 75px;
+  background: #8bb8bc;
+  left: 48%;
+  bottom: 210px;
+}
+
+/* CONTAINER */
+
+.sara-container {
+  max-width: 1600px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+/* LEFT */
+
+.sara-left {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sara-left h1 {
+  font-size: 42px;
+  font-weight: 400;
+  color: #111;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* RIGHT */
+
+.sara-right {
+  flex: 1;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sara-right img {
+  width: 100%;
+  max-width: 560px;
+  object-fit: contain;
+}
+
+/* DOWNLOAD BAR */
+
+.download-bar {
+  width: 100%;
+  margin-top: -20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.download-btn {
+  width: 100%;
+  max-width: 1800px;
+
+  border: none;
+  outline: none;
+
+  height: 58px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    90deg,
+    #f6aa1c,
+    #f3d47d,
+    #f6aa1c
+  );
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* CONTACT */
+
+.contact-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 42px;
+  font-weight: 600;
+  color: #111;
+}
+
+.contact-buttons {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* BUTTONS */
+
+.call-btn,
+.whatsapp-btn {
+  border: none;
+  outline: none;
+
+  height: 50px;
+  padding: 0 28px;
+
+  border-radius: 50px;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.call-btn {
+  background: #f56a45;
+}
+
+.whatsapp-btn {
+  background: #2ecc57;
+}
+
+.call-btn:hover,
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= ABOUT SECTION ================= */
+
+.about-section {
+  padding: 40px 20px 80px;
+  background: #f2f2f2;
+}
+
+.about-card {
+  max-width: 1450px;
+  margin: auto;
+
+  background: transparent;
+
+  border: 2px solid #f1c232;
+  border-radius: 10px;
+
+  padding: 28px 24px;
+}
+
+/* TITLE */
+
+.about-card h2 {
+  font-size: 34px;
+  font-weight: 500;
+  color: #f1c232;
+
+  margin-bottom: 24px;
+}
+
+/* TEXT */
+
+.about-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #222;
+
+  margin-bottom: 22px;
+}
+
+.about-card p span {
+  color: #2d8cff;
+}
+
+.about-card strong {
+  font-weight: 700;
+}
+
+/* SUB TITLE */
+
+.about-card h3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #111;
+
+  margin-top: 35px;
+  margin-bottom: 22px;
+}
+
+/* LIST */
+
+.about-card ul {
+  padding-left: 24px;
+  margin-bottom: 35px;
+}
+
+.about-card li {
+  font-size: 16px;
+  color: #222;
+  line-height: 1.8;
+}
+
+/* TAGS */
+
+.about-tags {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #222;
+}
+/* CONTENT */
+
+.sara-container,
+.download-bar,
+.contact-section {
+  position: relative;
+  z-index: 2;
+}
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+
+  .sara-left h1 {
+    font-size: 36px;
+  }
+
+  .contact-section h2 {
+    font-size: 34px;
+  }
+
+  .about-card h2 {
+    font-size: 30px;
+  }
+
+  .about-card h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .sara-container {
+    flex-direction: column;
+  }
+
+  .sara-left h1 {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+
+  .sara-right img {
+    max-width: 420px;
+  }
+
+  .download-btn {
+    font-size: 16px;
+    height: 54px;
+  }
+
+  .contact-section h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .about-card {
+    padding: 22px 18px;
+  }
+
+  .about-card h2 {
+    font-size: 26px;
+  }
+
+  .about-card h3 {
+    font-size: 22px;
+  }
+
+  .about-card p,
+  .about-card li,
+  .about-tags {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .sara-left h1 {
+    font-size: 24px;
+  }
+
+  .download-btn {
+    font-size: 15px;
+    height: 50px;
+    border-radius: 14px;
+  }
+
+  .contact-section h2 {
+    font-size: 22px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .call-btn,
+  .whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .yellow,
+  .orange,
+  .blue,
+  .green,
+  .peach {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+
+  .about-section {
+    padding: 20px 14px 50px;
+  }
+
+  .about-card h2 {
+    font-size: 22px;
+  }
+
+  .about-card h3 {
+    font-size: 18px;
+  }
+
+  .about-card p,
+  .about-card li,
+  .about-tags {
+    font-size: 14px;
+  }
+
+  .about-card ul {
+    padding-left: 20px;
+  }
+}
