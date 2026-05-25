@@ -10,7 +10,7 @@ import {
 
 import CheckIcon from "@mui/icons-material/Check";
 
-import imgStart from "../../assets/images/imgStart.gif";
+// import imgStart from "../../assets/images/imgStart.gif";
 
 const features = [
   "Live Updates",
@@ -50,7 +50,7 @@ export default function StartEarning() {
             >
               <Box
                 component="img"
-                src={imgStart}
+                // src={imgStart}
                 alt="Start Earning"
                 sx={{
                   width: "100%",
