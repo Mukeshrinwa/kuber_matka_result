@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  Paper,
-  Stack,
-} from "@mui/material";
+import { Box, Typography, Container, Grid, Paper, Stack } from "@mui/material";
 
 import PersonAddAlt1OutlinedIcon from "@mui/icons-material/PersonAddAlt1Outlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
@@ -20,71 +13,71 @@ const steps = [
   {
     icon: <PersonAddAlt1OutlinedIcon />,
     title: "1. Create An Account",
-    color: "#2563eb",
-    bg: "#dbeafe",
+    color: "#00f0ff",
+    bg: "rgba(0, 240, 255, 0.08)",
+    border: "rgba(0, 240, 255, 0.15)",
     points: [
       "Open The MatkaFun App Or Visit Our Website.",
       "Register Using Your Mobile Number And Set A Secure Password.",
       "Verify Your Number Using The OTP Sent To You.",
     ],
   },
-
   {
     icon: <AccountBalanceWalletOutlinedIcon />,
     title: "2. Add Funds To Your Wallet",
-    color: "#16a34a",
-    bg: "#dcfce7",
+    color: "#ffd700",
+    bg: "rgba(255, 215, 0, 0.08)",
+    border: "rgba(255, 215, 0, 0.15)",
     points: [
       "Go To The Add Funds Section.",
       "Select A Payment Method And Complete The Transaction.",
       "Funds Appear Instantly In Your Wallet — You're Ready To Play.",
     ],
   },
-
   {
     icon: <SportsEsportsOutlinedIcon />,
     title: "3. Choose A Market & Game",
-    color: "#9333ea",
-    bg: "#f3e8ff",
+    color: "#7b61ff",
+    bg: "rgba(123, 97, 255, 0.08)",
+    border: "rgba(123, 97, 255, 0.15)",
     points: [
-      "Select From Available Markets (For Example: Supreme Night, Morning, Etc.) And Pick The Game Type You Prefer.",
+      "Select From Available Markets And Pick The Game Type You Prefer.",
       "Open / Close — Pick A Single Digit Or Two-Digit Number.",
       "Sangam — Combination Plays With Higher Payouts.",
       "Custom Games — Special Formats Available On The App.",
     ],
   },
-
   {
     icon: <PlayCircleOutlineOutlinedIcon />,
     title: "4. Place Your Bet",
-    color: "#0f766e",
-    bg: "#ccfbf1",
+    color: "#00f0ff",
+    bg: "rgba(0, 240, 255, 0.08)",
+    border: "rgba(0, 240, 255, 0.15)",
     points: [
       "Enter The Number You Want To Bet On.",
       "Choose The Bet Type (Open, Close, Sangam, Etc.).",
       "Enter Your Stake (The Amount You Want To Bet).",
       "Confirm The Bet — It Will Be Recorded Immediately.",
-      "Tip: Double-Check Market Timing And Your Selected Number Before Confirming. Bets Cannot Be Changed After Confirmation.",
     ],
   },
-
   {
     icon: <EmojiEventsOutlinedIcon />,
     title: "5. Result & Payouts",
-    color: "#ca8a04",
-    bg: "#fef3c7",
+    color: "#ffd700",
+    bg: "rgba(255, 215, 0, 0.08)",
+    border: "rgba(255, 215, 0, 0.15)",
     points: [
       "When Results Are Declared:",
       "Winning Bets Are Credited Automatically To Your Wallet.",
-      "Payout Multiples Depend On The Market And Bet Type. Check The Payout Table In The App For Exact Rates.",
+      "Payout Multiples Depend On The Market And Bet Type.",
     ],
   },
-
   {
     icon: <CreditCardOutlinedIcon />,
     title: "6. Withdraw Funds",
-    color: "#db2777",
-    bg: "#fce7f3",
+    color: "#ff6ec7",
+    bg: "rgba(255, 110, 199, 0.08)",
+    border: "rgba(255, 110, 199, 0.15)",
     points: [
       "Go To The Withdraw Section In Your Account.",
       "Enter Bank Details And The Amount To Withdraw.",
@@ -95,61 +88,59 @@ const steps = [
 
 export default function AboutGame() {
   return (
-    <Box
-      sx={{
-        background: "#eef7f8",
-        minHeight: "100vh",
-        py: { xs: 3, md: 5 },
-      }}
-    >
+    <Box sx={{ background: "transparent", minHeight: "100vh", py: { xs: 3, md: 5 } }}>
       <Container maxWidth="lg">
         {/* Top Welcome Card */}
         <Paper
           elevation={0}
           sx={{
-            p: {
-              xs: 2.5,
-              sm: 3,
-              md: 4,
-            },
-            borderRadius: "18px",
-            border: "1px solid #dbe4e6",
-            background: "#ffffff",
+            p: { xs: 3, sm: 3.5, md: 4 },
+            borderRadius: "20px",
+            border: "1px solid rgba(0, 240, 255, 0.12)",
+            background: "rgba(15, 20, 40, 0.5)",
+            backdropFilter: "blur(16px)",
             mb: 3,
+            position: "relative",
+            overflow: "hidden",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "2px",
+              background: "linear-gradient(90deg, transparent, #00f0ff, #7b61ff, transparent)",
+            },
           }}
         >
           <Typography
             sx={{
-              fontSize: {
-                xs: "28px",
-                sm: "36px",
-              },
+              fontSize: { xs: "28px", sm: "36px" },
               fontWeight: 800,
-              color: "#111827",
+              background: "linear-gradient(135deg, #fff, #00f0ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
               lineHeight: 1.2,
+              fontFamily: "'Outfit', sans-serif",
             }}
           >
             Welcome To MatkaFun
           </Typography>
-
           <Typography
             sx={{
               mt: 1.5,
-              color: "#4b5563",
-              fontSize: {
-                xs: "14px",
-                sm: "16px",
-              },
+              color: "rgba(255,255,255,0.55)",
+              fontSize: { xs: "14px", sm: "16px" },
               lineHeight: 1.8,
+              fontFamily: "'Outfit', sans-serif",
             }}
           >
-            Play Safely And Enjoy A Smooth Matka Experience. Follow These
-            Simple Steps To Start Placing Bets And Winning.
+            Play Safely And Enjoy A Smooth Matka Experience. Follow These Simple Steps.
           </Typography>
         </Paper>
 
         {/* Steps Grid */}
-        <Grid container spacing={3}>
+        <Grid container spacing={2.5}>
           {steps.map((step, index) => (
             <Grid item size={{ xs: 12, sm: 6, md: 6 }} key={index}>
               <Paper
@@ -157,31 +148,32 @@ export default function AboutGame() {
                 sx={{
                   p: 3,
                   borderRadius: "18px",
-                  border: "1px solid #dbe4e6",
-                  background: "#ffffff",
+                  border: `1px solid ${step.border}`,
+                  background: "rgba(15, 20, 40, 0.4)",
+                  backdropFilter: "blur(12px)",
                   height: "100%",
-                  transition: "0.3s",
-
+                  transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  animation: `fadeInUp 0.5s ease ${index * 0.08}s both`,
+                  "@keyframes fadeInUp": {
+                    from: { opacity: 0, transform: "translateY(20px)" },
+                    to: { opacity: 1, transform: "translateY(0)" },
+                  },
                   "&:hover": {
                     transform: "translateY(-4px)",
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
+                    boxShadow: `0 15px 35px rgba(0,0,0,0.3), 0 0 15px ${step.bg}`,
+                    borderColor: step.color,
                   },
                 }}
               >
-                {/* Header */}
-                <Stack
-                  direction="row"
-                  spacing={2}
-                  alignItems="flex-start"
-                >
-                  {/* Icon */}
+                <Stack direction="row" spacing={2} alignItems="flex-start">
                   <Box
                     sx={{
-                      minWidth: 46,
-                      width: 46,
-                      height: 46,
+                      minWidth: 48,
+                      width: 48,
+                      height: 48,
                       borderRadius: "14px",
                       background: step.bg,
+                      border: `1px solid ${step.border}`,
                       color: step.color,
                       display: "flex",
                       alignItems: "center",
@@ -191,17 +183,14 @@ export default function AboutGame() {
                     {step.icon}
                   </Box>
 
-                  {/* Content */}
                   <Box>
                     <Typography
                       sx={{
-                        fontWeight: 800,
-                        color: "#111827",
-                        fontSize: {
-                          xs: "18px",
-                          sm: "20px",
-                        },
-                        mb: 1,
+                        fontWeight: 700,
+                        color: "#fff",
+                        fontSize: { xs: "18px", sm: "20px" },
+                        mb: 1.5,
+                        fontFamily: "'Outfit', sans-serif",
                       }}
                     >
                       {step.title}
@@ -212,15 +201,13 @@ export default function AboutGame() {
                         <Typography
                           key={i}
                           sx={{
-                            color: "#4b5563",
-                            fontSize: {
-                              xs: "14px",
-                              sm: "15px",
-                            },
+                            color: "rgba(255,255,255,0.5)",
+                            fontSize: { xs: "13px", sm: "14px" },
                             lineHeight: 1.8,
+                            fontFamily: "'Outfit', sans-serif",
                           }}
                         >
-                          {point}
+                          • {point}
                         </Typography>
                       ))}
                     </Stack>
@@ -236,14 +223,11 @@ export default function AboutGame() {
           elevation={0}
           sx={{
             mt: 3,
-            p: {
-              xs: 2.5,
-              sm: 3,
-            },
+            p: { xs: 2.5, sm: 3 },
             borderRadius: "18px",
-            background:
-              "linear-gradient(135deg, #2b6cb0 0%, #2563eb 100%)",
-            color: "#fff",
+            background: "linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(123, 97, 255, 0.1))",
+            border: "1px solid rgba(0, 240, 255, 0.15)",
+            backdropFilter: "blur(16px)",
           }}
         >
           <Stack direction="row" spacing={2} alignItems="center">
@@ -252,41 +236,37 @@ export default function AboutGame() {
                 width: 48,
                 height: 48,
                 borderRadius: "14px",
-                background: "rgba(255,255,255,0.18)",
+                background: "rgba(0, 240, 255, 0.1)",
+                border: "1px solid rgba(0, 240, 255, 0.2)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <HelpOutlineOutlinedIcon />
+              <HelpOutlineOutlinedIcon sx={{ color: "#00f0ff" }} />
             </Box>
 
             <Box>
               <Typography
                 sx={{
                   fontWeight: 800,
-                  fontSize: {
-                    xs: "20px",
-                    sm: "24px",
-                  },
+                  color: "#fff",
+                  fontSize: { xs: "20px", sm: "24px" },
+                  fontFamily: "'Outfit', sans-serif",
                 }}
               >
                 Need Help?
               </Typography>
-
               <Typography
                 sx={{
                   mt: 0.5,
-                  opacity: 0.95,
+                  color: "rgba(255,255,255,0.55)",
                   lineHeight: 1.8,
-                  fontSize: {
-                    xs: "14px",
-                    sm: "15px",
-                  },
+                  fontSize: { xs: "13px", sm: "15px" },
+                  fontFamily: "'Outfit', sans-serif",
                 }}
               >
-                Visit The Help & Support Section Or Contact Our 24/7 Support
-                Team Through The App's Chat.
+                Visit The Help & Support Section Or Contact Our 24/7 Support Team Through The App's Chat.
               </Typography>
             </Box>
           </Stack>

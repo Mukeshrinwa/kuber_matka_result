@@ -1,110 +1,135 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #f2f2f2;
-  font-family: "Poppins", sans-serif;
-}
-
-/* ================= HERO ================= */
+/* ================= HERO SECTION ================= */
 
 .sara-hero {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  padding: 40px 20px 80px;
-  background: #f2f2f2;
+  padding: 60px 20px 80px;
+  background: linear-gradient(180deg, #06080f 0%, #0a0e1a 40%, #0d1225 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* FLOATING DOTS */
+/* Animated background orbs */
+.sara-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+  top: -200px;
+  right: -200px;
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
 
+.sara-hero::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(123, 97, 255, 0.06) 0%, transparent 70%);
+  bottom: -100px;
+  left: -150px;
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+/* FLOATING DIAMOND DOTS */
 .dot {
   position: absolute;
-  border-radius: 50%;  
   z-index: 1;
-
-  
+  border-radius: 4px;
+  transform: rotate(45deg);
+  opacity: 0.2;
+  animation: diamond-spin 15s linear infinite;
 }
 
 .yellow {
-  width: 55px;
-  height: 55px;
-  background: #f4d65e;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
   top: 120px;
   left: 55px;
+  animation-duration: 12s;
 }
 
 .orange {
   width: 16px;
   height: 16px;
-  background: #f26d3d;
+  background: linear-gradient(135deg, #ff6ec7, #ff3d8a);
   top: 130px;
   left: 35%;
+  animation-duration: 18s;
 }
 
 .blue {
-  width: 16px;
-  height: 16px;
-  background: #4f9ea2;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #00f0ff, #0088ff);
   top: 80px;
   right: 40%;
+  animation-duration: 14s;
 }
 
 .peach {
-  width: 65px;
-  height: 65px;
-  background: #f39a73;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #7b61ff, #4a3ab5);
   right: 80px;
   bottom: 240px;
+  animation-duration: 20s;
 }
 
 .green {
-  width: 75px;
-  height: 75px;
-  background: #8bb8bc;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #00f0ff, #00c4cc);
   left: 48%;
   bottom: 210px;
+  animation-duration: 16s;
+  opacity: 0.12;
 }
 
 /* CONTAINER */
-
 .sara-container {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 40px;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 /* LEFT */
-
 .sara-left {
   flex: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .sara-left h1 {
-  font-size: 42px;
-  font-weight: 400;
-  color: #111;
-  line-height: 1.3;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
   text-align: center;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #00f0ff 40%, #7b61ff 70%, #ff6ec7 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 4s linear infinite;
 }
 
 /* RIGHT */
-
 .sara-right {
   flex: 1;
-
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -112,72 +137,88 @@ body {
 
 .sara-right img {
   width: 100%;
-  max-width: 560px;
+  max-width: 520px;
   object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 240, 255, 0.15));
+  animation: float 6s ease-in-out infinite;
 }
 
 /* DOWNLOAD BAR */
-
 .download-bar {
   width: 100%;
-  margin-top: -20px;
-
+  margin-top: 10px;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .download-btn {
   width: 100%;
-  max-width: 1800px;
-
-  border: none;
+  max-width: 1400px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
   outline: none;
-
-  height: 58px;
-
-  border-radius: 18px;
-
-  background: linear-gradient(
-    90deg,
-    #f6aa1c,
-    #f3d47d,
-    #f6aa1c
-  );
-
+  height: 62px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.12), rgba(123, 97, 255, 0.12));
+  backdrop-filter: blur(20px);
   font-size: 18px;
-  font-weight: 600;
-  color: #555;
-
+  font-weight: 700;
+  color: #00f0ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-
+  gap: 12px;
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-  transition: 0.3s ease;
+.download-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--diamond-1), var(--diamond-2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .download-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 240, 255, 0.3);
+  border-color: var(--diamond-1);
+  color: #fff;
+}
+
+.download-btn:hover::before {
+  opacity: 0.15;
 }
 
 /* CONTACT */
-
 .contact-section {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-section h2 {
-  font-size: 42px;
-  font-weight: 600;
-  color: #111;
+  font-size: 44px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .contact-buttons {
-  margin-top: 20px;
-
+  margin-top: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,104 +226,119 @@ body {
 }
 
 /* BUTTONS */
-
 .call-btn,
 .whatsapp-btn {
   border: none;
   outline: none;
-
-  height: 50px;
-  padding: 0 28px;
-
+  height: 54px;
+  padding: 0 32px;
   border-radius: 50px;
-
   color: white;
-
   font-size: 16px;
-  font-weight: 500;
-
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 10px;
-
   cursor: pointer;
-
-  transition: 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
 }
 
 .call-btn {
-  background: #f56a45;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  box-shadow: 0 4px 20px rgba(238, 90, 36, 0.35);
 }
 
 .whatsapp-btn {
-  background: #2ecc57;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
 }
 
 .call-btn:hover,
 .whatsapp-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.call-btn:hover {
+  box-shadow: 0 8px 30px rgba(238, 90, 36, 0.5);
+}
+
+.whatsapp-btn:hover {
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
 }
 
 /* ================= ABOUT SECTION ================= */
 
 .about-section {
-  padding: 40px 20px 80px;
-  background: #f2f2f2;
+  padding: 60px 20px 80px;
+  background: transparent;
+  position: relative;
 }
 
 .about-card {
-  max-width: 1450px;
+  max-width: 1400px;
   margin: auto;
+  background: rgba(15, 20, 40, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 36px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
 
-  background: transparent;
-
-  border: 2px solid #f1c232;
-  border-radius: 10px;
-
-  padding: 28px 24px;
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff, #7b61ff, transparent);
 }
 
 /* TITLE */
-
 .about-card h2 {
-  font-size: 34px;
-  font-weight: 500;
-  color: #f1c232;
-
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00f0ff, #7b61ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 24px;
 }
 
 /* TEXT */
-
 .about-card p {
   font-size: 16px;
-  line-height: 1.8;
-  color: #222;
-
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 22px;
 }
 
 .about-card p span {
-  color: #2d8cff;
+  color: #00f0ff;
+  font-weight: 600;
 }
 
 .about-card strong {
   font-weight: 700;
+  color: #ffd700;
 }
 
 /* SUB TITLE */
-
 .about-card h3 {
   font-size: 28px;
-  font-weight: 500;
-  color: #111;
-
+  font-weight: 600;
+  color: #ffd700;
   margin-top: 35px;
   margin-bottom: 22px;
 }
 
 /* LIST */
-
 .about-card ul {
   padding-left: 24px;
   margin-bottom: 35px;
@@ -290,150 +346,78 @@ body {
 
 .about-card li {
   font-size: 16px;
-  color: #222;
-  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2;
+  position: relative;
+}
+
+.about-card li::marker {
+  color: #00f0ff;
 }
 
 /* TAGS */
-
 .about-tags {
   font-size: 15px;
   line-height: 1.8;
-  color: #222;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  background: rgba(0, 240, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 240, 255, 0.08);
 }
-/* CONTENT */
 
+/* Z-INDEX */
 .sara-container,
 .download-bar,
 .contact-section {
   position: relative;
   z-index: 2;
 }
+
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1200px) {
-
-  .sara-left h1 {
-    font-size: 36px;
-  }
-
-  .contact-section h2 {
-    font-size: 34px;
-  }
-
-  .about-card h2 {
-    font-size: 30px;
-  }
-
-  .about-card h3 {
-    font-size: 24px;
-  }
+  .sara-left h1 { font-size: 38px; }
+  .contact-section h2 { font-size: 36px; }
+  .about-card h2 { font-size: 30px; }
+  .about-card h3 { font-size: 24px; }
 }
 
 @media (max-width: 900px) {
-
-  .sara-container {
-    flex-direction: column;
-  }
-
-  .sara-left h1 {
-    font-size: 30px;
-    margin-top: 30px;
-  }
-
-  .sara-right img {
-    max-width: 420px;
-  }
-
-  .download-btn {
-    font-size: 16px;
-    height: 54px;
-  }
-
-  .contact-section h2 {
-    font-size: 28px;
-  }
+  .sara-container { flex-direction: column; gap: 30px; }
+  .sara-left h1 { font-size: 32px; margin-top: 20px; }
+  .sara-right img { max-width: 380px; }
+  .download-btn { font-size: 16px; height: 56px; }
+  .contact-section h2 { font-size: 30px; }
 }
 
 @media (max-width: 768px) {
-
-  .about-card {
-    padding: 22px 18px;
-  }
-
-  .about-card h2 {
-    font-size: 26px;
-  }
-
-  .about-card h3 {
-    font-size: 22px;
-  }
-
+  .about-card { padding: 28px 22px; }
+  .about-card h2 { font-size: 26px; }
+  .about-card h3 { font-size: 22px; }
   .about-card p,
   .about-card li,
-  .about-tags {
-    font-size: 15px;
-    line-height: 1.7;
-  }
+  .about-tags { font-size: 15px; line-height: 1.7; }
 }
 
 @media (max-width: 600px) {
-
-  .sara-left h1 {
-    font-size: 24px;
-  }
-
-  .download-btn {
-    font-size: 15px;
-    height: 50px;
-    border-radius: 14px;
-  }
-
-  .contact-section h2 {
-    font-size: 22px;
-  }
-
-  .contact-buttons {
-    flex-direction: column;
-  }
-
-  .call-btn,
-  .whatsapp-btn {
+  .sara-hero { padding: 40px 16px 60px; min-height: auto; }
+  .sara-left h1 { font-size: 26px; }
+  .download-btn { font-size: 14px; height: 52px; border-radius: 14px; }
+  .contact-section h2 { font-size: 24px; }
+  .contact-buttons { flex-direction: column; }
+  .call-btn, .whatsapp-btn {
     width: 100%;
     justify-content: center;
     font-size: 14px;
   }
-
-  .yellow,
-  .orange,
-  .blue,
-  .green,
-  .peach {
-    transform: scale(0.7);
-  }
+  .yellow, .orange, .blue, .green, .peach { transform: rotate(45deg) scale(0.6); }
 }
 
 @media (max-width: 480px) {
-
-  .about-section {
-    padding: 20px 14px 50px;
-  }
-
-  .about-card h2 {
-    font-size: 22px;
-  }
-
-  .about-card h3 {
-    font-size: 18px;
-  }
-
-  .about-card p,
-  .about-card li,
-  .about-tags {
-    font-size: 14px;
-  }
-
-  .about-card ul {
-    padding-left: 20px;
-  }
+  .about-section { padding: 30px 14px 50px; }
+  .about-card h2 { font-size: 22px; }
+  .about-card h3 { font-size: 18px; }
+  .about-card p, .about-card li, .about-tags { font-size: 14px; }
+  .about-card ul { padding-left: 20px; }
 }

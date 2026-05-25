@@ -1,23 +1,12 @@
-import {
-  Box,
-  Typography,
-  Button,
-} from "@mui/material";
-
-import {
-  Link,
-  useParams,
-} from "react-router-dom";
-
+import { Box, Typography, Button } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 const blogPosts = [
   {
     id: 1,
-
     title:
       "Sara777 - The Complete Guide to Sara 777, Sara777 App, and Radha Morning Chart",
-
     content: `
 Introduction
 
@@ -53,126 +42,92 @@ Sara777 continues to be one of the most trusted destinations for Satta Matka cha
 ];
 
 export default function BlogDetails() {
-  const { id } =
-    useParams();
-
-  const post =
-    blogPosts.find(
-      (item) =>
-        item.id ===
-        Number(id)
-    );
+  const { id } = useParams();
+  const post = blogPosts.find((item) => item.id === Number(id));
 
   return (
     <Box
       sx={{
-        background:
-          "#f2f2f2",
-
-        minHeight:
-          "100vh",
-
-        py: {
-          xs: 5,
-          md: 8,
-        },
-
+        background: "transparent",
+        minHeight: "100vh",
+        py: { xs: 5, md: 8 },
         px: 2,
       }}
     >
       {/* BACK BTN */}
-
-      <Box
-        sx={{
-          maxWidth:
-            "900px",
-
-          margin:
-            "0 auto 25px",
-        }}
-      >
+      <Box sx={{ maxWidth: "900px", margin: "0 auto 25px" }}>
         <Button
           component={Link}
-          to="/blogs"
-          startIcon={
-            <ArrowBackRoundedIcon />
-          }
+          to="/blog"
+          startIcon={<ArrowBackRoundedIcon />}
           sx={{
-            color: "#222",
-
-            fontSize:
-              "16px",
-
-            textTransform:
-              "none",
-
-            fontWeight: 500,
+            color: "#00f0ff",
+            fontSize: "15px",
+            textTransform: "none",
+            fontWeight: 600,
+            fontFamily: "'Outfit', sans-serif",
+            px: 2.5,
+            py: 1,
+            borderRadius: "10px",
+            border: "1px solid rgba(0, 240, 255, 0.15)",
+            background: "rgba(0, 240, 255, 0.05)",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              background: "rgba(0, 240, 255, 0.1)",
+              borderColor: "#00f0ff",
+              transform: "translateX(-4px)",
+            },
           }}
         >
-          Back
+          Back to Blogs
         </Button>
       </Box>
 
       {/* CONTENT */}
-
       <Box
         sx={{
-          maxWidth:
-            "900px",
-
+          maxWidth: "900px",
           margin: "auto",
-
-          background:
-            "#fff",
-
-          borderRadius:
-            "12px",
-
-          p: {
-            xs: 2.5,
-            md: 5,
+          background: "rgba(15, 20, 40, 0.6)",
+          backdropFilter: "blur(16px)",
+          border: "1px solid rgba(0, 240, 255, 0.1)",
+          borderRadius: "20px",
+          p: { xs: 3, md: 5 },
+          position: "relative",
+          overflow: "hidden",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "2px",
+            background: "linear-gradient(90deg, transparent, #00f0ff, #7b61ff, transparent)",
           },
-
-          boxShadow:
-            "0 2px 12px rgba(0,0,0,0.04)",
         }}
       >
         {/* TITLE */}
-
         <Typography
           sx={{
-            fontSize: {
-              xs: "28px",
-              md: "44px",
-            },
-
-            fontWeight: 600,
-
+            fontSize: { xs: "26px", md: "40px" },
+            fontWeight: 700,
             lineHeight: 1.3,
-
-            color: "#222",
-
+            color: "#fff",
             mb: 3,
+            fontFamily: "'Outfit', sans-serif",
           }}
         >
           {post?.title}
         </Typography>
 
         {/* CONTENT */}
-
         <Typography
           sx={{
-            fontSize: {
-              xs: "16px",
-              md: "18px",
-            },
-
+            fontSize: { xs: "15px", md: "17px" },
             lineHeight: 2,
-
-            color: "#444",
-
-            whiteSpace:
-              "pre-line",
+            color: "rgba(255,255,255,0.6)",
+            whiteSpace: "pre-line",
+            fontFamily: "'Outfit', sans-serif",
           }}
         >
           {post?.content}

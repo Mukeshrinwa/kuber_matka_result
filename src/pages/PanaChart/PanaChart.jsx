@@ -2,7 +2,7 @@ import { Box, Typography, Button } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchPana } from "../../api/panaCahrtApi";
-import { MarketResultModel } from "../../bloc/marketResult/marketResultModel";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 export default function PanaChart() {
   const { name, marketId } = useParams();
@@ -13,37 +13,19 @@ export default function PanaChart() {
   const [highlight, setHighlight] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const dayNames = [
-    "mon",
-    "tue",
-    "wed",
-    "thu",
-    "fri",
-    "sat",
-    "sun",
-  ];
+  const dayNames = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
   useEffect(() => {
-    if (!marketId) {
-      setLoading(false);
-      return;
-    }
+    if (!marketId) { setLoading(false); return; }
 
     const fetchPanaData = async () => {
       setLoading(true);
       try {
         const response = await fetchPana(marketId);
-
-        // FIXED: Handle the response structure correctly
-        // The response has { status, total, data } structure
         const rawResults = response?.data?.data || response?.data || [];
 
-        console.log("Raw results:", rawResults); // Debug log
-
         const results = rawResults.map((item) => {
-          // Create a date object from the 'from' field
           const fromDate = item.from ? new Date(item.from) : null;
-
           return {
             market_name: item.market_name,
             open_value: item.open_value,
@@ -58,7 +40,6 @@ export default function PanaChart() {
           };
         });
 
-        console.log("Processed results:", results); // Debug log
         generateTableData(results);
       } catch (error) {
         console.error("Error fetching pana chart:", error);
@@ -73,47 +54,27 @@ export default function PanaChart() {
   }, [marketId]);
 
   const generateTableData = (results) => {
-    console.log("Generating table data from:", results); // Debug log
-
     const weeks = [];
-
-    // Filter out results without valid dates
     const validResults = results.filter(r => r.fromDate && !isNaN(r.fromDate.getTime()));
-
-    const sortedResults = [...validResults].sort((a, b) => {
-      return a.fromDate - b.fromDate;
-    });
-
-    console.log("Sorted results:", sortedResults); // Debug log
+    const sortedResults = [...validResults].sort((a, b) => a.fromDate - b.fromDate);
 
     let currentWeek = [];
     let currentWeekNumber = -1;
 
     sortedResults.forEach((result) => {
       const dayOfMonth = result.fromDate.getDate();
-      // Calculate week number of the month (1-5)
       const weekNum = Math.ceil(dayOfMonth / 7);
-
-      // Get month to ensure we don't mix different months
-      const monthKey = `${result.fromDate.getMonth()}-${result.fromDate.getFullYear()}`;
 
       if (currentWeekNumber !== weekNum || !currentWeek.length ||
         (currentWeek[0]?.fromDate?.getMonth() !== result.fromDate.getMonth())) {
-        if (currentWeek.length > 0) {
-          weeks.push(currentWeek);
-        }
+        if (currentWeek.length > 0) weeks.push(currentWeek);
         currentWeek = [];
         currentWeekNumber = weekNum;
       }
-
       currentWeek.push(result);
     });
 
-    if (currentWeek.length > 0) {
-      weeks.push(currentWeek);
-    }
-
-    console.log("Weeks:", weeks); // Debug log
+    if (currentWeek.length > 0) weeks.push(currentWeek);
 
     const formattedData = weeks.map((weekResults) => {
       const firstDate = weekResults[0]?.fromDate;
@@ -126,19 +87,14 @@ export default function PanaChart() {
       };
 
       dayNames.forEach((day, index) => {
-        // Find result for this day (0 = Sunday, 1 = Monday, etc.)
-        // Adjusting for Monday as first day
         const dayResult = weekResults.find((r) => {
           if (!r.fromDate) return false;
           let dayIndex = r.fromDate.getDay();
-          // Convert Sunday (0) to 7 for Monday-first week
           dayIndex = dayIndex === 0 ? 7 : dayIndex;
-          // Our dayNames order: mon(1), tue(2), wed(3), thu(4), fri(5), sat(6), sun(7)
           return dayIndex === (index + 1);
         });
 
         if (dayResult) {
-          // Format: [open_code, open_value+close_value, close_code]
           row[day] = [
             dayResult.open_code || "***",
             `${dayResult.open_value || "*"}${dayResult.close_value || "*"}`,
@@ -152,628 +108,296 @@ export default function PanaChart() {
       return row;
     });
 
-    console.log("Formatted data:", formattedData); // Debug log
     setTableData(formattedData);
 
     const allPanas = formattedData
-      .flatMap((row) =>
-        dayNames.map((day) => row[day]).flat()
-      )
+      .flatMap((row) => dayNames.map((day) => row[day]).flat())
       .filter((v) => v !== "***" && v !== "**");
-
     setHighlight(allPanas);
   };
 
   const formatDate = (date) => {
     if (!date || isNaN(date.getTime())) return "";
     const day = date.getDate();
-    const months = [
-      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-    ];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return `${day}-${months[date.getMonth()]}`;
   };
 
-  const goBottom = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
+  const goBottom = () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  const goTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const diamondBtnStyle = {
+    height: "50px",
+    px: 4,
+    borderRadius: "12px",
+    border: "1px solid rgba(123, 97, 255, 0.25)",
+    color: "#7b61ff",
+    fontSize: { xs: "15px", md: "16px" },
+    textTransform: "none",
+    fontFamily: "'Outfit', sans-serif",
+    fontWeight: 600,
+    transition: "all 0.3s ease",
+    "&:hover": {
+      border: "1px solid #7b61ff",
+      background: "linear-gradient(135deg, rgba(123, 97, 255, 0.12), rgba(255, 110, 199, 0.12))",
+      color: "#fff",
+      transform: "translateY(-2px)",
+      boxShadow: "0 4px 15px rgba(123, 97, 255, 0.2)",
+    },
   };
 
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-return (
-  <Box
-    sx={{
-      background: "#f2f2f2",
-
-      minHeight: "100vh",
-
-      py: {
-        xs: 4,
-        md: 6,
-      },
-
-      px: 2,
-    }}
-  >
-    <Box
-      sx={{
-        maxWidth: "1450px",
-
-        mx: "auto",
-      }}
-    >
-      {/* ================= DOWNLOAD BUTTON ================= */}
-
-      <Box
-        sx={{
-          mb: 7,
-        }}
-      >
-        <Box
-          sx={{
-            height: {
-              xs: "70px",
-              md: "74px",
-            },
-
-            borderRadius: "50px",
-
-            background:
-              "linear-gradient(90deg,#efd98a 0%,#f3ac1d 25%,#f3ac1d 75%,#efe3a5 100%)",
-
-            display: "flex",
-
-            alignItems: "center",
-
-            justifyContent: "center",
-
-            gap: 1.5,
-
-            color: "#5b5b5b",
-
-            fontWeight: 600,
-
-            cursor: "pointer",
-
-            transition: "0.3s ease",
-
-            "&:hover": {
-              transform:
-                "translateY(-2px)",
-            },
-
-            fontSize: {
-              xs: "22px",
-              md: "24px",
-            },
-          }}
-        >
-          🤖 Download App
-        </Box>
-      </Box>
-
-      {/* ================= TITLE ================= */}
-
-      <Typography
-        sx={{
-          textAlign: "center",
-
-          color: "#17233c",
-
-          fontWeight: 500,
-
-          lineHeight: 1.2,
-
-          mb: 3,
-
-          textTransform:
-            "uppercase",
-
-          fontSize: {
-            xs: "34px",
-            md: "34px",
-          },
-        }}
-      >
-        {chartName} Pana Chart |
-        {` `}
-        {chartName} Panel Chart
-      </Typography>
-
-      {/* ================= DESC ================= */}
-
-      <Typography
-        sx={{
-          textAlign: "center",
-
-          color: "#333",
-
-          lineHeight: 1.8,
-
-          maxWidth: "1200px",
-
-          mx: "auto",
-
-          mb: 4,
-
-          fontSize: {
-            xs: "16px",
-            md: "18px",
-          },
-        }}
-      >
-        {chartName} Panel Chart
-        Satta Matka Record
-        Old History Historical
-        Data Bracket Results
-        Chart Online Live Book
-        Digits Numbers
-      </Typography>
-
-      {/* ================= GO BOTTOM ================= */}
-
-      <Box
-        sx={{
-          display: "flex",
-
-          justifyContent:
-            "center",
-
-          mb: 7,
-        }}
-      >
-        <Button
-          onClick={goBottom}
-          variant="outlined"
-          sx={{
-            height: "56px",
-
-            px: 5,
-
-            borderRadius: "8px",
-
-            border:
-              "1px solid #f1b51c",
-
-            color: "#222",
-
-            fontSize: {
-              xs: "18px",
-              md: "20px",
-            },
-
-            textTransform:
-              "none",
-
-            "&:hover": {
-              border:
-                "1px solid #f1b51c",
-
-              background:
-                "#f1b51c",
-
-              color: "#fff",
-            },
-          }}
-        >
-          Go To Bottom
-        </Button>
-      </Box>
-
-      {/* ================= TABLE ================= */}
-
-      <Box
-        sx={{
-          overflowX: "auto",
-
-          mb: 6,
-        }}
-      >
-        <Box
-          component="table"
-          sx={{
-            width: "100%",
-
-            maxWidth: "1000px",
-
-            margin: "auto",
-
-            borderCollapse:
-              "collapse",
-
-            background:
-              "#f8f8f8",
-
-            overflow:
-              "hidden",
-
-            borderRadius:
-              "8px",
-          }}
-        >
-          {/* HEADER */}
-
-          <Box component="thead">
-            <Box component="tr">
-              {[
-                "Date",
-                "Mon",
-                "Tue",
-                "Wed",
-                "Thu",
-                "Fri",
-                "Sat",
-                "Sun",
-              ].map((day) => (
-                <Box
-                  component="th"
-                  key={day}
-                  sx={{
-                    height: "64px",
-
-                    border:
-                      "1px solid #f1b51c",
-
-                    background:
-                      "#f8f8f8",
-
-                    color:
-                      "#17233c",
-
-                    fontWeight: 600,
-
-                    width:
-                      day ===
-                      "Date"
-                        ? "220px"
-                        : "120px",
-
-                    fontSize: {
-                      xs: "18px",
-                      md: "18px",
-                    },
-                  }}
-                >
-                  {day}
-                </Box>
-              ))}
-            </Box>
+  return (
+    <Box sx={{ background: "transparent", minHeight: "100vh", py: { xs: 4, md: 6 }, px: 2 }}>
+      <Box sx={{ maxWidth: "1400px", mx: "auto" }}>
+        {/* DOWNLOAD BTN */}
+        <Box sx={{ mb: 6 }}>
+          <Box
+            sx={{
+              height: { xs: "60px", md: "66px" },
+              borderRadius: "16px",
+              background: "linear-gradient(135deg, rgba(123, 97, 255, 0.1), rgba(255, 110, 199, 0.1))",
+              border: "1px solid rgba(123, 97, 255, 0.2)",
+              backdropFilter: "blur(16px)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 1.5,
+              color: "#7b61ff",
+              fontWeight: 700,
+              cursor: "pointer",
+              transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              fontFamily: "'Outfit', sans-serif",
+              letterSpacing: "1px",
+              textTransform: "uppercase",
+              "&:hover": {
+                transform: "translateY(-3px)",
+                boxShadow: "0 8px 30px rgba(123, 97, 255, 0.2)",
+                borderColor: "#7b61ff",
+              },
+              fontSize: { xs: "16px", md: "18px" },
+            }}
+          >
+            <DownloadRoundedIcon sx={{ fontSize: "28px" }} />
+            Download App
           </Box>
+        </Box>
 
-          {/* BODY */}
+        {/* TITLE */}
+        <Typography
+          sx={{
+            textAlign: "center",
+            fontWeight: 700,
+            lineHeight: 1.2,
+            mb: 2,
+            textTransform: "uppercase",
+            fontFamily: "'Outfit', sans-serif",
+            background: "linear-gradient(135deg, #7b61ff, #ff6ec7)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            fontSize: { xs: "28px", md: "34px" },
+          }}
+        >
+          {chartName} Pana Chart | {chartName} Panel Chart
+        </Typography>
 
-          <Box component="tbody">
-            {loading ? (
+        {/* DESC */}
+        <Typography
+          sx={{
+            textAlign: "center",
+            color: "rgba(255,255,255,0.5)",
+            lineHeight: 1.8,
+            maxWidth: "1000px",
+            mx: "auto",
+            mb: 4,
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: { xs: "14px", md: "16px" },
+          }}
+        >
+          {chartName} Panel Chart Satta Matka Record Old History Historical Data Bracket Results Chart Online Live Book Digits Numbers
+        </Typography>
+
+        {/* GO BOTTOM */}
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 6 }}>
+          <Button onClick={goBottom} variant="outlined" sx={diamondBtnStyle}>
+            ◆ Go To Bottom
+          </Button>
+        </Box>
+
+        {/* TABLE */}
+        <Box sx={{ overflowX: "auto", mb: 6 }}>
+          <Box
+            component="table"
+            sx={{
+              width: "100%",
+              maxWidth: "1200px",
+              margin: "auto",
+              borderCollapse: "collapse",
+              background: "rgba(15, 20, 40, 0.4)",
+              backdropFilter: "blur(12px)",
+              overflow: "hidden",
+              borderRadius: "16px",
+              border: "1px solid rgba(123, 97, 255, 0.1)",
+            }}
+          >
+            {/* HEADER */}
+            <Box component="thead">
               <Box component="tr">
-                <Box
-                  component="td"
-                  colSpan={8}
-                  sx={{
-                    textAlign:
-                      "center",
-
-                    py: 5,
-
-                    fontSize:
-                      "24px",
-                  }}
-                >
-                  Loading...
-                </Box>
-              </Box>
-            ) : (
-              tableData.map(
-                (row, i) => (
+                {["Date", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
                   <Box
-                    component="tr"
-                    key={i}
+                    component="th"
+                    key={day}
+                    sx={{
+                      height: "56px",
+                      border: "1px solid rgba(123, 97, 255, 0.1)",
+                      background: "rgba(123, 97, 255, 0.06)",
+                      color: "#7b61ff",
+                      fontWeight: 700,
+                      fontFamily: "'Outfit', sans-serif",
+                      letterSpacing: "1px",
+                      width: day === "Date" ? "200px" : "110px",
+                      fontSize: { xs: "13px", md: "14px" },
+                    }}
                   >
-                    {/* DATE */}
+                    {day}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
 
+            {/* BODY */}
+            <Box component="tbody">
+              {loading ? (
+                <Box component="tr">
+                  <Box component="td" colSpan={8} sx={{ textAlign: "center", py: 5 }}>
+                    <Box
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        margin: "auto",
+                        border: "3px solid rgba(123, 97, 255, 0.2)",
+                        borderTopColor: "#7b61ff",
+                        borderRadius: "50%",
+                        animation: "spin 0.8s linear infinite",
+                        "@keyframes spin": { to: { transform: "rotate(360deg)" } },
+                      }}
+                    />
+                  </Box>
+                </Box>
+              ) : (
+                tableData.map((row, i) => (
+                  <Box component="tr" key={i}>
+                    {/* DATE */}
                     <Box
                       component="td"
                       sx={{
-                        border:
-                          "1px solid #f1b51c",
-
-                        background:
-                          "#f8f8f8",
-
-                        textAlign:
-                          "center",
-
-                        width:
-                          "220px",
-
+                        border: "1px solid rgba(123, 97, 255, 0.06)",
+                        background: "rgba(123, 97, 255, 0.03)",
+                        textAlign: "center",
+                        width: "200px",
                         fontWeight: 600,
-
-                        color:
-                          "#17233c",
-
+                        color: "rgba(255,255,255,0.7)",
                         lineHeight: 1.8,
-
-                        fontSize:
-                          {
-                            xs: "18px",
-                            md: "18px",
-                          },
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: { xs: "13px", md: "14px" },
                       }}
                     >
-                      <Box py={2}>
-                        <Typography
-                          sx={{
-                            fontWeight: 600,
-
-                            fontSize:
-                              "18px",
-                          }}
-                        >
+                      <Box py={1.5}>
+                        <Typography sx={{ fontWeight: 600, fontSize: "14px", color: "#7b61ff", fontFamily: "'Outfit', sans-serif" }}>
                           {row.from}
                         </Typography>
-
-                        <Typography
-                          sx={{
-                            fontWeight: 600,
-
-                            fontSize:
-                              "18px",
-                          }}
-                        >
+                        <Typography sx={{ fontWeight: 400, fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Outfit', sans-serif" }}>
                           To
                         </Typography>
-
-                        <Typography
-                          sx={{
-                            fontWeight: 600,
-
-                            fontSize:
-                              "18px",
-                          }}
-                        >
+                        <Typography sx={{ fontWeight: 600, fontSize: "14px", color: "#7b61ff", fontFamily: "'Outfit', sans-serif" }}>
                           {row.to}
                         </Typography>
                       </Box>
                     </Box>
 
                     {/* DAYS */}
+                    {dayNames.map((day) => {
+                      const left = row[day]?.[0] || "***";
+                      const center = row[day]?.[1] || "**";
+                      const right = row[day]?.[2] || "***";
+                      const hasData = left !== "***" || center !== "**" || right !== "***";
 
-                    {dayNames.map(
-                      (day) => {
-                        const left =
-                          row[
-                            day
-                          ]?.[0] ||
-                          "***";
-
-                        const center =
-                          row[
-                            day
-                          ]?.[1] ||
-                          "**";
-
-                        const right =
-                          row[
-                            day
-                          ]?.[2] ||
-                          "***";
-
-                        return (
+                      return (
+                        <Box
+                          component="td"
+                          key={day}
+                          sx={{
+                            border: "1px solid rgba(123, 97, 255, 0.06)",
+                            background: hasData ? "rgba(123, 97, 255, 0.02)" : "transparent",
+                            width: "110px",
+                            height: "100px",
+                            verticalAlign: "middle",
+                            transition: "all 0.2s ease",
+                            "&:hover": hasData ? {
+                              background: "rgba(123, 97, 255, 0.06)",
+                            } : {},
+                          }}
+                        >
                           <Box
-                            component="td"
-                            key={
-                              day
-                            }
                             sx={{
-                              border:
-                                "1px solid #f1b51c",
-
-                              background:
-                                "#f8f8f8",
-
-                              width:
-                                "120px",
-
-                              height:
-                                "118px",
-
-                              verticalAlign:
-                                "middle",
+                              height: "100%",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              gap: 0.5,
                             }}
                           >
-                            <Box
+                            <Typography
                               sx={{
-                                height:
-                                  "100%",
-
-                                display:
-                                  "flex",
-
-                                flexDirection:
-                                  "column",
-
-                                alignItems:
-                                  "center",
-
-                                justifyContent:
-                                  "center",
-
-                                gap: 1,
+                                fontSize: "13px",
+                                fontWeight: 500,
+                                fontFamily: "'Orbitron', sans-serif",
+                                color: left === "***" ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.6)",
                               }}
                             >
-                              {/* TOP */}
-
-                              <Typography
-                                sx={{
-                                  fontSize:
-                                    "16px",
-
-                                  fontWeight: 600,
-
-                                  color:
-                                    left ===
-                                    "146"
-                                      ? "red"
-                                      : "#17233c",
-                                }}
-                              >
-                                {
-                                  left
-                                }
-                              </Typography>
-
-                              {/* CENTER */}
-
-                              <Typography
-                                sx={{
-                                  fontSize:
-                                    "24px",
-
-                                  fontWeight: 700,
-
-                                  color:
-                                    center ===
-                                    "11"
-                                      ? "red"
-                                      : "#17233c",
-                                }}
-                              >
-                                {
-                                  center
-                                }
-                              </Typography>
-
-                              {/* BOTTOM */}
-
-                              <Typography
-                                sx={{
-                                  fontSize:
-                                    "16px",
-
-                                  fontWeight: 600,
-
-                                  color:
-                                    right ===
-                                    "146"
-                                      ? "red"
-                                      : "#17233c",
-                                }}
-                              >
-                                {
-                                  right
-                                }
-                              </Typography>
-                            </Box>
+                              {left}
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontSize: "20px",
+                                fontWeight: 700,
+                                fontFamily: "'Orbitron', sans-serif",
+                                color: center === "**" ? "rgba(255,255,255,0.15)" : "#ffd700",
+                              }}
+                            >
+                              {center}
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontSize: "13px",
+                                fontWeight: 500,
+                                fontFamily: "'Orbitron', sans-serif",
+                                color: right === "***" ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.6)",
+                              }}
+                            >
+                              {right}
+                            </Typography>
                           </Box>
-                        );
-                      }
-                    )}
+                        </Box>
+                      );
+                    })}
                   </Box>
-                )
-              )
-            )}
+                ))
+              )}
+            </Box>
           </Box>
         </Box>
-      </Box>
 
-      {/* ================= BUTTONS ================= */}
-
-      <Box
-        sx={{
-          display: "flex",
-
-          justifyContent:
-            "center",
-
-          gap: 2,
-
-          flexWrap: "wrap",
-        }}
-      >
-        <Button
-          onClick={() =>
-            navigate(-1)
-          }
-          variant="outlined"
-          sx={{
-            height: "56px",
-
-            px: 5,
-
-            borderRadius: "8px",
-
-            border:
-              "1px solid #f1b51c",
-
-            color: "#222",
-
-            fontSize: {
-              xs: "18px",
-              md: "20px",
-            },
-
-            textTransform:
-              "none",
-
-            "&:hover": {
-              border:
-                "1px solid #f1b51c",
-
-              background:
-                "#f1b51c",
-
-              color: "#fff",
-            },
-          }}
-        >
-          Back
-        </Button>
-
-        <Button
-          onClick={goTop}
-          variant="outlined"
-          sx={{
-            height: "56px",
-
-            px: 5,
-
-            borderRadius: "8px",
-
-            border:
-              "1px solid #f1b51c",
-
-            color: "#222",
-
-            fontSize: {
-              xs: "18px",
-              md: "20px",
-            },
-
-            textTransform:
-              "none",
-
-            "&:hover": {
-              border:
-                "1px solid #f1b51c",
-
-              background:
-                "#f1b51c",
-
-              color: "#fff",
-            },
-          }}
-        >
-          Go To Top
-        </Button>
+        {/* BUTTONS */}
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, flexWrap: "wrap" }}>
+          <Button onClick={() => navigate(-1)} variant="outlined" sx={diamondBtnStyle}>
+            ◆ Back
+          </Button>
+          <Button onClick={goTop} variant="outlined" sx={diamondBtnStyle}>
+            ◆ Go To Top
+          </Button>
+        </Box>
       </Box>
     </Box>
-  </Box>
-);
+  );
 }

@@ -1,36 +1,42 @@
 import { Box, Typography } from "@mui/material";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import DiamondIcon from "@mui/icons-material/Diamond";
 
 export default function RegisterAccount() {
   return (
     <Box
       sx={{
-        background: "#f5f5f5",
+        background: "transparent",
         minHeight: "70vh",
-        py: 6
+        py: 8,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-
       {/* PAGE TITLE */}
       <Typography
         textAlign="center"
         sx={{
           fontSize: { xs: "28px", md: "36px" },
-          fontWeight: 700,
-          color: "#2f3e8f",
+          fontWeight: 800,
+          background: "linear-gradient(135deg, #00f0ff, #7b61ff)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
           mb: 4,
-          position: "relative"
+          fontFamily: "'Outfit', sans-serif",
+          position: "relative",
         }}
       >
         Register your account
-
-        {/* underline */}
         <Box
           sx={{
-            width: "120px",
-            height: "2px",
-            background: "#2f3e8f",
-            margin: "8px auto 0"
+            width: "80px",
+            height: "3px",
+            background: "linear-gradient(90deg, #00f0ff, #7b61ff)",
+            margin: "10px auto 0",
+            borderRadius: "2px",
           }}
         />
       </Typography>
@@ -38,38 +44,53 @@ export default function RegisterAccount() {
       {/* CARD */}
       <Box
         sx={{
-          maxWidth: "900px",
-          margin: "auto",
-          background: "#fff",
-          borderRadius: "10px",
-          padding: { xs: 4, md: 8 },
+          maxWidth: "600px",
+          width: "100%",
+          mx: "auto",
+          background: "rgba(15, 20, 40, 0.6)",
+          backdropFilter: "blur(16px)",
+          border: "1px solid rgba(0, 240, 255, 0.1)",
+          borderRadius: "24px",
+          padding: { xs: 4, md: 6 },
           textAlign: "center",
-          boxShadow: "0 5px 20px rgba(0,0,0,0.08)"
+          position: "relative",
+          overflow: "hidden",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "2px",
+            background: "linear-gradient(90deg, transparent, #00f0ff, #7b61ff, transparent)",
+          },
         }}
       >
-
         {/* ICON */}
         <Box
           sx={{
-            width: "70px",
-            height: "70px",
-            background: "#1da1f2",
-            borderRadius: "50%",
+            width: 80,
+            height: 80,
+            background: "linear-gradient(135deg, #00f0ff, #7b61ff)",
+            borderRadius: "20px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            margin: "0 auto 20px"
+            margin: "0 auto 24px",
+            boxShadow: "0 8px 25px rgba(0, 240, 255, 0.25)",
           }}
         >
-          <PersonOutlineIcon sx={{ color: "#fff", fontSize: 35 }} />
+          <PersonOutlineIcon sx={{ color: "#fff", fontSize: 40 }} />
         </Box>
 
         {/* TITLE */}
         <Typography
           sx={{
-            fontSize: { xs: "22px", md: "28px" },
-            fontWeight: 600,
-            mb: 2
+            fontSize: { xs: "22px", md: "26px" },
+            fontWeight: 700,
+            mb: 2,
+            color: "#fff",
+            fontFamily: "'Outfit', sans-serif",
           }}
         >
           Register your account
@@ -78,8 +99,10 @@ export default function RegisterAccount() {
         {/* TEXT */}
         <Typography
           sx={{
-            color: "#333",
-            mb: 1
+            color: "rgba(255,255,255,0.6)",
+            mb: 1,
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: "16px",
           }}
         >
           Registration is temporarily not available
@@ -87,15 +110,14 @@ export default function RegisterAccount() {
 
         <Typography
           sx={{
-            color: "#888",
-            fontSize: "14px"
+            color: "rgba(255,255,255,0.35)",
+            fontSize: "14px",
+            fontFamily: "'Outfit', sans-serif",
           }}
         >
           We appreciate your cooperation.
         </Typography>
-
       </Box>
-
     </Box>
   );
 }
