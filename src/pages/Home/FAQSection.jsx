@@ -112,6 +112,7 @@ export default function FAQSection() {
 
   return (
     <Box
+      id="faq-section"
       sx={{
         position: "relative",
         background: "transparent",

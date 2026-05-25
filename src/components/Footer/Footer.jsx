@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Box, Typography, Stack } from "@mui/material";
 import logoImg from "../../assets/images/newlogo.jpeg";
 import CallIcon from "@mui/icons-material/Call";
@@ -6,8 +7,35 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import AndroidIcon from "@mui/icons-material/Android";
 
 export default function Footer() {
-  const quickLinks = ["Home", "Games", "Charts", "Game Rates", "FAQ"];
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const quickLinks = [
+    { label: "Home", path: "/" },
+    { label: "Games", scrollTo: "markets-section" },
+    { label: "Charts", path: "/charts" },
+    { label: "Game Rates", scrollTo: "rates-section" },
+    { label: "FAQ", scrollTo: "faq-section" },
+  ];
   const policyLinks = ["Privacy Policy", "Data Deletion", "Terms & Conditions", "Disclaimer"];
+
+  const handleQuickLink = (link) => {
+    if (link.path) {
+      navigate(link.path);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (link.scrollTo) {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          const el = document.getElementById(link.scrollTo);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 400);
+      } else {
+        const el = document.getElementById(link.scrollTo);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <Box
@@ -188,6 +216,7 @@ export default function Footer() {
               {quickLinks.map((link, i) => (
                 <Typography
                   key={i}
+                  onClick={() => handleQuickLink(link)}
                   sx={{
                     color: "rgba(255,255,255,0.45)",
                     fontSize: "14px",
@@ -212,7 +241,7 @@ export default function Footer() {
                     },
                   }}
                 >
-                  {link}
+                  {link.label}
                 </Typography>
               ))}
             </Stack>
