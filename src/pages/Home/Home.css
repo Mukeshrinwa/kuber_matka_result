@@ -96,18 +96,19 @@
 /* CONTAINER */
 .sara-container {
   max-width: 1400px;
+  width: 100%;
   margin: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  gap: 30px;
   position: relative;
   z-index: 2;
 }
 
-/* LEFT */
+/* HEADING */
 .sara-left {
-  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,28 +126,33 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: textShine 4s linear infinite;
+  position: absolute;
+  top: 40%;
+  left: 30%;
 }
 
-/* RIGHT */
-.sara-right {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.sara-right img {
+/* FULL WIDTH BANNER */
+.sara-banner-full {
   width: 100%;
-  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sara-banner-full img {
+  width: 60%;
+  max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 240, 255, 0.15));
+  border-radius: 16px;
+  filter: drop-shadow(0 20px 60px rgba(0, 240, 255, 0.2));
   animation: float 6s ease-in-out infinite;
 }
 
 /* DOWNLOAD BAR */
 .download-bar {
   width: 100%;
-  margin-top: 10px;
+  margin-top: -30px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -384,9 +390,8 @@
 }
 
 @media (max-width: 900px) {
-  .sara-container { flex-direction: column; gap: 30px; }
+  .sara-container { gap: 20px; }
   .sara-left h1 { font-size: 32px; margin-top: 20px; }
-  .sara-right img { max-width: 380px; }
   .download-btn { font-size: 16px; height: 56px; }
   .contact-section h2 { font-size: 30px; }
 }

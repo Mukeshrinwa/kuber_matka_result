@@ -22,17 +22,15 @@ export default function Home() {
 
         <div className="sara-container">
 
-          {/* LEFT CONTENT */}
+          {/* HEADING */}
           <div className="sara-left">
-
             <h1>
               Kuber Matka App
             </h1>
-
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="sara-right">
+          {/* FULL WIDTH BANNER */}
+          <div className="sara-banner-full">
             <img
               src={bannerImg}
               alt="Kuber Matka Banner"

@@ -17,7 +17,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import DiamondIcon from "@mui/icons-material/Diamond";
+import logoImg from "../../assets/images/newlogo.jpeg";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 import { fetchResult } from "../../api/resultApi";
@@ -44,8 +44,8 @@ export default function Navbar() {
         const raw = Array.isArray(response?.data)
           ? response.data
           : Array.isArray(response)
-          ? response
-          : [];
+            ? response
+            : [];
 
         const uniqueMap = {};
         raw.forEach((item) => {
@@ -154,19 +154,16 @@ export default function Navbar() {
             }}
           >
             <Box
+              component="img"
+              src={logoImg}
+              alt="Kuber Matka"
               sx={{
                 width: 36,
                 height: 36,
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, #00f0ff, #7b61ff)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 0 20px rgba(0, 240, 255, 0.3)",
+                objectFit: "contain",
               }}
-            >
-              <DiamondIcon sx={{ color: "#fff", fontSize: 20 }} />
-            </Box>
+            />
             <Typography
               sx={{
                 fontSize: "22px",
@@ -402,18 +399,16 @@ export default function Navbar() {
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
               <Box
+                component="img"
+                src={logoImg}
+                alt="Kuber Matka"
                 sx={{
                   width: 32,
                   height: 32,
                   borderRadius: "8px",
-                  background: "linear-gradient(135deg, #00f0ff, #7b61ff)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  objectFit: "contain",
                 }}
-              >
-                <DiamondIcon sx={{ color: "#fff", fontSize: 16 }} />
-              </Box>
+              />
               <Typography
                 sx={{
                   fontSize: "18px",
