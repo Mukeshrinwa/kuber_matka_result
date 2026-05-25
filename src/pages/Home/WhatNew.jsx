@@ -563,7 +563,7 @@ export default function StartEarning() {
                 },
               }}
             >
-              Sara777 – Your Complete
+              Kuber Matka – Your Complete
               Satta Matka Chart
               Destination
             </Typography>
@@ -583,11 +583,11 @@ export default function StartEarning() {
                 },
               }}
             >
-{`Welcome to Sara777, the most trusted platform for accurate and real-time Satta Matka Charts. Whether you are looking for Radha Morning Chart, Lata Morning Chart, Madhur Day Chart, or Sridevi Night Chart, we provide structured data, historical records, and daily updates.
+{`Welcome to Kuber Matka, the most trusted platform for accurate and real-time Satta Matka Charts. Whether you are looking for Radha Morning Chart, Lata Morning Chart, Madhur Day Chart, or Sridevi Night Chart, we provide structured data, historical records, and daily updates.
 
 Our mission is simple: to deliver accurate, transparent, and easy-to-read charts so that users can track market trends and make informed decisions.
 
-Why Sara777 is the Right Choice
+Why Kuber Matka is the Right Choice
 
 • Accurate Updates – Charts are refreshed in real time with verified data.
 • Comprehensive Coverage – From morning to night markets, we cover every major chart.
@@ -595,7 +595,7 @@ Why Sara777 is the Right Choice
 • User-Friendly Design – Clean navigation for desktop and mobile users.
 • Trusted Data Source – Structured and transparent presentation.
 
-Complete Chart Collection at Sara777
+Complete Chart Collection at Kuber Matka
 
 • Radha Morning Chart
 • Lata Morning Chart
@@ -625,15 +625,15 @@ The Sridevi Night Chart is highly popular among evening market followers.
 
 Frequently Asked Questions
 
-Q1: How do I check Radha Morning Chart results on Sara777?
+Q1: How do I check Radha Morning Chart results on Kuber Matka?
 Visit the Radha Morning Chart section for the latest updates and past results.
 
-Q2: Is Sara777 data reliable?
+Q2: Is Kuber Matka data reliable?
 Yes. Every update is verified and structured to ensure accuracy.
 
 Conclusion
 
-Sara777 is more than just a chart website. We are a complete hub for Radha Morning Chart, Lata Morning Chart, Madhur Day, and Sridevi Night Chart.`}
+Kuber Matka is more than just a chart website. We are a complete hub for Radha Morning Chart, Lata Morning Chart, Madhur Day, and Sridevi Night Chart.`}
             </Typography>
           </Box>
         </Box>

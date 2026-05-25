@@ -6,18 +6,18 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 const blogPosts = [
   {
     id: 1,
-    title: "Sara777 Online Gaming in India",
+    title: "Kuber Matka Online Gaming in India",
     excerpt:
-      "Sara777 is a new name in the Indian online gaming and betting market. With the growing digital platform and interest in online gambling.",
+      "Kuber Matka is a new name in the Indian online gaming and betting market. With the growing digital platform and interest in online gambling.",
     color: "#00f0ff",
     gradient: "linear-gradient(135deg, rgba(0, 240, 255, 0.08), rgba(123, 97, 255, 0.04))",
     borderColor: "rgba(0, 240, 255, 0.15)",
   },
   {
     id: 2,
-    title: "Sara777 - The Complete Guide to Satta Matka Charts and Results",
+    title: "Kuber Matka - The Complete Guide to Satta Matka Charts and Results",
     excerpt:
-      "When it comes to tracking Satta Matka charts, one name that stands out for reliability and accuracy is Sara777.",
+      "When it comes to tracking Satta Matka charts, one name that stands out for reliability and accuracy is Kuber Matka.",
     color: "#7b61ff",
     gradient: "linear-gradient(135deg, rgba(123, 97, 255, 0.08), rgba(255, 110, 199, 0.04))",
     borderColor: "rgba(123, 97, 255, 0.15)",
@@ -25,9 +25,9 @@ const blogPosts = [
   {
     id: 3,
     title:
-      "Sara777 - The Complete Guide to Sara 777, Sara777 App, and Radha Morning Chart",
+      "Kuber Matka - The Complete Guide to Kuber Matka, Kuber Matka App, and Radha Morning Chart",
     excerpt:
-      "In the world of Satta Matka, accuracy and transparency are everything. That is where Sara777 has built its reputation.",
+      "In the world of Satta Matka, accuracy and transparency are everything. That is where Kuber Matka has built its reputation.",
     color: "#ff6ec7",
     gradient: "linear-gradient(135deg, rgba(255, 110, 199, 0.08), rgba(255, 215, 0, 0.04))",
     borderColor: "rgba(255, 110, 199, 0.15)",
@@ -35,7 +35,7 @@ const blogPosts = [
   {
     id: 4,
     title:
-      "Sara777 - Your Complete Guide to Sara 777, Sara777 App, Sara777 APK, and Lata Morning Chart",
+      "Kuber Matka - Your Complete Guide to Kuber Matka, Kuber Matka App, Kuber Matka APK, and Lata Morning Chart",
     excerpt:
       "In the fast-moving world of Satta Matka, accuracy and accessibility are the two pillars of success.",
     color: "#ffd700",

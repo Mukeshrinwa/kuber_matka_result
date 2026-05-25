@@ -21,7 +21,7 @@ export default function SeoContent() {
           px: { xs: 2, sm: 3, md: 0 }
         }}
       >
-        Sara5567 | Sara 777 | Sara Ji
+        Kuber Matka | Kuber Matka | Kuber Ji
       </Typography>
 
       <Box 
@@ -48,7 +48,7 @@ export default function SeoContent() {
               }
             }}
           >
-            Sara5567 All Satta Matka Charts – Complete Historical Records & Results
+            Kuber Matka All Satta Matka Charts – Complete Historical Records & Results
           </Typography>
 
           <Typography 
@@ -62,10 +62,10 @@ export default function SeoContent() {
               }
             }}
           >
-            Sara5567 offers a comprehensive archive of past results and real-time updates,
+            Kuber Matka offers a comprehensive archive of past results and real-time updates,
             allowing you to track number trends and make smart selections. With a complete
             history available through the satta matka charts record and satta matka charts result,
-            you can explore the Sara5567 all satta matka chart that includes all jodi charts,
+            you can explore the Kuber Matka all satta matka chart that includes all jodi charts,
             all pana charts, all king starline charts, and all king jackpot charts in one place.
           </Typography>
         </Paper>
@@ -277,7 +277,7 @@ export default function SeoContent() {
               ["How does the satta matka charts result help players?",
               "It provides real-time updates on the latest winning numbers."],
 
-              ["What does the Sara5567 all satta matka chart offer?",
+              ["What does the Kuber Matka all satta matka chart offer?",
               "It combines historical records and live results with all jodi and pana charts."],
 
               ["How do all jodi charts improve winning chances?",

@@ -6,15 +6,15 @@ const blogPosts = [
   {
     id: 1,
     title:
-      "Sara777 - The Complete Guide to Sara 777, Sara777 App, and Radha Morning Chart",
+      "Kuber Matka - The Complete Guide to Kuber Matka, Kuber Matka App, and Radha Morning Chart",
     content: `
 Introduction
 
-In the world of Satta Matka, accuracy and transparency are everything. That is where Sara777 has built its reputation as a trusted platform.
+In the world of Satta Matka, accuracy and transparency are everything. That is where Kuber Matka has built its reputation as a trusted platform.
 
-What is Sara777?
+What is Kuber Matka?
 
-Sara777 is a leading online platform for Satta Matka charts and results. It covers all major markets including morning, day, and night games.
+Kuber Matka is a leading online platform for Satta Matka charts and results. It covers all major markets including morning, day, and night games.
 
 Features:
 • Real-time updates of charts
@@ -22,11 +22,11 @@ Features:
 • Mobile friendly interface
 • Fast loading website
 
-Sara777 vs Sara777
+Kuber Matka vs Kuber Matka
 
 Both terms point to the same trusted platform. Users often search using different spellings.
 
-The Sara777 App
+The Kuber Matka App
 
 The app allows users to check charts, results, and market timings instantly from mobile devices.
 
@@ -36,7 +36,7 @@ Radha Morning Chart is one of the most followed charts in Satta Matka due to its
 
 Conclusion
 
-Sara777 continues to be one of the most trusted destinations for Satta Matka charts and gaming updates.
+Kuber Matka continues to be one of the most trusted destinations for Satta Matka charts and gaming updates.
 `,
   },
 ];

@@ -26,9 +26,7 @@ export default function Home() {
           <div className="sara-left">
 
             <h1>
-              Sara777 | Sara 777 |
-              <br />
-              Sara777 App
+              Kuber Matka App
             </h1>
 
           </div>
@@ -37,7 +35,7 @@ export default function Home() {
           <div className="sara-right">
             <img
               src={bannerImg}
-              alt="Sara777 Banner"
+              alt="Kuber Matka Banner"
             />
           </div>
 
@@ -81,18 +79,18 @@ export default function Home() {
         <div className="about-card">
 
           <h2>
-            Welcome to Sara777
+            Welcome to Kuber Matka
           </h2>
 
           <p>
-            Welcome to <span>Sara777</span>, your premier destination for exciting
+            Welcome to <span>Kuber Matka</span>, your premier destination for exciting
             online gaming adventures! Our website provides a vast variety of
             Jodi games, giving players plenty of opportunities to challenge
             their luck and strategy with engaging interactive games.
           </p>
 
           <p>
-            At <strong>Sara777</strong>, your fun and security come first.
+            At <strong>Kuber Matka</strong>, your fun and security come first.
             Our games are structured to provide equitable play and honesty,
             so you can relax while you enjoy the thrill.
           </p>
@@ -104,7 +102,7 @@ export default function Home() {
           </p>
 
           <h3>
-            Sara777 Satta Matka Chart Collection
+            Kuber Matka Satta Matka Chart Collection
           </h3>
 
           <p>
@@ -124,12 +122,12 @@ export default function Home() {
           </ul>
 
           <div className="about-tags">
-            Sara777 || Sara777 apk || sara777 Login ||
-            Sara777 Kalyan Chart || sara777 game ||
-            sara777 starline chart || sara777 jackpot chart ||
-            Sara 777 App download latest version ||
-            Sara 777 download APK ||
-            Sara 777 Matka App download.
+            Kuber Matka || Kuber Matka apk || Kuber Matka Login ||
+            Kuber Matka Kalyan Chart || Kuber Matka game ||
+            Kuber Matka starline chart || Kuber Matka jackpot chart ||
+            Kuber Matka App download latest version ||
+            Kuber Matka download APK ||
+            Kuber Matka App download.
           </div>
 
         </div>

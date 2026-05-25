@@ -178,7 +178,7 @@ export default function Navbar() {
                 letterSpacing: "1px",
               }}
             >
-              SARA777
+              KUBER MATKA
             </Typography>
           </Box>
 
@@ -424,7 +424,7 @@ export default function Navbar() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                SARA777
+                KUBER MATKA
               </Typography>
             </Box>
             <IconButton

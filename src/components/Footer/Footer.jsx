@@ -104,7 +104,7 @@ export default function Footer() {
               letterSpacing: "2px",
             }}
           >
-            SARA777
+            KUBER MATKA
           </Typography>
         </Box>
 
@@ -256,7 +256,7 @@ export default function Footer() {
             fontSize: { xs: "13px", md: "14px" },
           }}
         >
-          Our website is operated by Sara International, a company established under the law of
+          Our website is operated by Kuber Matka International, a company established under the law of
           Isle of Man, with registered address at 1-10 Ballanoa Meadow IM4-2HT, Isle Of Man,
           and having its gaming sublicense issued by Isle of Man e-Gaming and all rights to
           operate the gaming software worldwide.
@@ -280,7 +280,7 @@ export default function Footer() {
             fontFamily: "'Outfit', sans-serif",
           }}
         >
-          Copyright © 2025 Sara777. All Rights Reserved
+          Copyright © 2025 Kuber Matka. All Rights Reserved
         </Typography>
       </Box>
     </Box>

@@ -12,19 +12,19 @@ import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 
 const faqData = [
   {
-    question: "What is Sara777 ?",
+    question: "What is Kuber Matka ?",
     answer:
-      "Sara777 is an online platform that provides real-time Satta Matka results and charts.",
+      "Kuber Matka is an online platform that provides real-time Satta Matka results and charts.",
   },
   {
-    question: "What are games are available on Sara777 ?",
+    question: "What are games are available on Kuber Matka ?",
     answer:
-      "Sara777 offers multiple games including Kalyan, Milan, Madhur, Rajdhani, Main Bazar and many more.",
+      "Kuber Matka offers multiple games including Kalyan, Milan, Madhur, Rajdhani, Main Bazar and many more.",
   },
   {
-    question: "Is Sara777 Have Licence ?",
+    question: "Is Kuber Matka Have Licence ?",
     answer:
-      "Sara777 provides trusted gaming services with secure access for users.",
+      "Kuber Matka provides trusted gaming services with secure access for users.",
   },
   {
     question: "What Is Minimum Deposit and Withdrawals ?",
@@ -32,17 +32,17 @@ const faqData = [
       "Minimum deposit and withdrawal limits may vary depending on the payment method.",
   },
   {
-    question: "Why to Choose Sara777 Among Other Providers ?",
+    question: "Why to Choose Kuber Matka Among Other Providers ?",
     answer:
-      "Sara777 provides fast updates, easy navigation, and trusted charts for users.",
+      "Kuber Matka provides fast updates, easy navigation, and trusted charts for users.",
   },
   {
-    question: "What is Sara777, and how does it help with Satta Matka charts?",
+    question: "What is Kuber Matka, and how does it help with Satta Matka charts?",
     answer:
-      "Sara777 helps users track live charts, historical records, and game results easily.",
+      "Kuber Matka helps users track live charts, historical records, and game results easily.",
   },
   {
-    question: "How often are the charts on Sara777 updated?",
+    question: "How often are the charts on Kuber Matka updated?",
     answer:
       "Charts are updated regularly with real-time results and accurate information.",
   },
@@ -52,9 +52,9 @@ const faqData = [
       "Kalyan Panel Chart helps users analyze number patterns and historical trends.",
   },
   {
-    question: "Can I access Sara777 Satta Matka charts on my mobile device?",
+    question: "Can I access Kuber Matka Satta Matka charts on my mobile device?",
     answer:
-      "Yes, Sara777 is fully mobile responsive and works smoothly on smartphones.",
+      "Yes, Kuber Matka is fully mobile responsive and works smoothly on smartphones.",
   },
   {
     question:
@@ -68,38 +68,38 @@ const faqData = [
       "Kalyan Jodi Chart allows users to review historical combinations and identify trends.",
   },
   {
-    question: "Are historical records available for past games on Sara777?",
+    question: "Are historical records available for past games on Kuber Matka?",
     answer:
-      "Yes, users can check previous records and archived chart data on Sara777.",
+      "Yes, users can check previous records and archived chart data on Kuber Matka.",
   },
   {
-    question: "Is there a way to compare different timeframes on Sara777?",
+    question: "Is there a way to compare different timeframes on Kuber Matka?",
     answer:
       "Yes, users can compare charts from multiple days and markets for better analysis.",
   },
   {
-    question: "Does Sara777 offer interactive options for analyzing charts?",
+    question: "Does Kuber Matka offer interactive options for analyzing charts?",
     answer:
-      "Sara777 provides easy-to-read charts and structured data for quick analysis.",
+      "Kuber Matka provides easy-to-read charts and structured data for quick analysis.",
   },
   {
-    question: "How can I ensure I get the most accurate data from Sara777?",
+    question: "How can I ensure I get the most accurate data from Kuber Matka?",
     answer:
-      "Always check live updated charts and trusted historical records available on Sara777.",
+      "Always check live updated charts and trusted historical records available on Kuber Matka.",
   },
   {
-    question: "How often are Sara777 charts updated?",
+    question: "How often are Kuber Matka charts updated?",
     answer: "Charts are updated instantly whenever new results are available.",
   },
   {
-    question: "Where can I download the Sara777 app?",
+    question: "Where can I download the Kuber Matka app?",
     answer:
-      "You can download the Sara777 app directly from the official website.",
+      "You can download the Kuber Matka app directly from the official website.",
   },
   {
-    question: "Is Sara777 safe?",
+    question: "Is Kuber Matka safe?",
     answer:
-      "Yes, Sara777 provides a secure and user-friendly experience for users.",
+      "Yes, Kuber Matka provides a secure and user-friendly experience for users.",
   },
 ];
 
